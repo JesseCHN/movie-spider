@@ -1,0 +1,27 @@
+{
+  "name": "movie_spider",
+  "version": "1.0.0",
+  "description": "Spider for getting the latest movie information from the cinema",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JesseCHN/movie_spider.git"
+  },
+  "keywords": [
+    "Spider",
+    "Movie",
+    "Price"
+  ],
+  "author": "Jesse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JesseCHN/movie_spider/issues"
+  },
+  "homepage": "https://github.com/JesseCHN/movie_spider#readme",
+  "dependencies": {
+    "crawler": "^1.2.1"
+  }
+}
