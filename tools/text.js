@@ -1,5 +1,5 @@
-function replace(str){
+function removeStains(str){
     return str.replace(/\s/g,'');
 }
 
-module.exports = { replace }
+module.exports = { removeStains }

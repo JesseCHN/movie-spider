@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/JesseCHN/movie_spider#readme",
   "dependencies": {
-    "crawler": "^1.2.1"
+    "crawler": "^1.2.1",
+    "koa": "^2.7.0"
   }
 }

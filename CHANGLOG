@@ -1,0 +1,11 @@
+变更列表
+
+[2019-03-25]
+1.抽象封工具spider          [done]
+2.tools Text 命名优化       [done]
+3.单独处理影片详情页          [done]
+4.安装部署mongoDB           [todo]
+5.优化文件夹命名规范          [done]
+6.引入api module（koa2）     [done]
+7.定时爬取数据               [todo]
+8.影片 电影院 => 不同平台价格  [todo]

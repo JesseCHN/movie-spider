@@ -1,2 +1,2 @@
-require('./c/coming_movie.js');
-require('./c/playing_movie.js');
+require('./controller/index.js.js');
+require('./api/index.js');
