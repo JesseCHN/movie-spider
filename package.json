@@ -24,6 +24,7 @@
   "homepage": "https://github.com/JesseCHN/movie_spider#readme",
   "dependencies": {
     "crawler": "^1.2.1",
-    "koa": "^2.7.0"
+    "koa": "^2.7.0",
+    "mongoose": "^5.5.12"
   }
 }

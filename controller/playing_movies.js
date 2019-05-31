@@ -1,6 +1,7 @@
 const Spider = require("../tools/spider");
 const Text = require("../tools/text");
 const Movie = require("./movie");
+const Playing = require("../model/playing_movies");
 
 Spider.start('https://movie.douban.com/cinema/nowplaying/shanghai/', function ($) {
     let playing_movies = $("#wrapper #content .article #nowplaying .lists li.list-item");
@@ -19,6 +20,12 @@ Spider.start('https://movie.douban.com/cinema/nowplaying/shanghai/', function ($
         movie.detailUrl = 'https://movie.douban.com/subject/' + Text.removeStains(cur_movie.attr("data-subject")) + '/';
         movies_arr.push(movie);
         Movie.spider_item(movie.detailUrl);
+
+        Playing.create(movies_arr,function(err,playings){
+            if (err) console.log(err);
+            console.log('playings插入数据库成功',playings);
+        });
+
     }
     console.log('最终的结果', movies_arr);
 }, function (error) {

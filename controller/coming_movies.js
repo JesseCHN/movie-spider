@@ -1,6 +1,7 @@
 const Spider = require("../tools/spider");
 const Text = require("../tools/text");
 const Movie = require("./movie");
+const Coming = require("../model/coming_movies");
 
 Spider.start('https://movie.douban.com/coming', function ($) {
     let coming_movies = $("#wrapper #content .article tbody tr");
@@ -11,15 +12,21 @@ Spider.start('https://movie.douban.com/coming', function ($) {
         let movie_detail = cur_movie.children();
 
         let movie = {};
-        movie.date = Text.replace($(movie_detail[0]).text());
-        movie.title = Text.replace($(($(movie_detail[1]).children())[0]).text());
-        movie.type = Text.replace($(movie_detail[2]).text());
-        movie.country = Text.replace($(movie_detail[3]).text());
-        movie.fork = Text.replace($(movie_detail[4]).text()); // 想看
-        movie.detailUrl = Text.replace($(($(movie_detail[1]).children())[0]).attr("href")); // 海报、剧情简介等
+        movie.date = Text.removeStains($(movie_detail[0]).text());
+        movie.title = Text.removeStains($(($(movie_detail[1]).children())[0]).text());
+        movie.type = Text.removeStains($(movie_detail[2]).text());
+        movie.country = Text.removeStains($(movie_detail[3]).text());
+        movie.fork = Text.removeStains($(movie_detail[4]).text()); // 想看
+        movie.detailUrl = Text.removeStains($(($(movie_detail[1]).children())[0]).attr("href")); // 海报、剧情简介等
         movies_arr.push(movie);
 
         Movie.spider_item(movie.detailUrl);
+
+        Coming.create(movies_arr,function(err,comings){
+            if (err) console.log(err);
+            console.log('comings插入数据库成功',comings);
+        });
+
     }
 
 }, function (error) {
