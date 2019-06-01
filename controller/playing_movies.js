@@ -5,7 +5,7 @@ const Playing = require("../model/playing_movies");
 
 Spider.start('https://movie.douban.com/cinema/nowplaying/shanghai/', function ($) {
     let playing_movies = $("#wrapper #content .article #nowplaying .lists li.list-item");
-    console.log(playing_movies.length);
+    // console.log(playing_movies.length);
     let movies_arr = [];
     for (let i = 0; i < playing_movies.length; i++) {
         let cur_movie = $(playing_movies[i]);
@@ -21,13 +21,15 @@ Spider.start('https://movie.douban.com/cinema/nowplaying/shanghai/', function ($
         movies_arr.push(movie);
         Movie.spider_item(movie.detailUrl);
 
-        Playing.create(movies_arr,function(err,playings){
-            if (err) console.log(err);
-            console.log('playings插入数据库成功',playings);
-        });
-
     }
-    console.log('最终的结果', movies_arr);
+
+    console.log('正在热映的', movies_arr.length);
+
+    Playing.create(movies_arr,function(err,playings){
+        if (err) console.log(err);
+        // console.log('playings插入数据库成功',playings);
+    });
+
 }, function (error) {
     console.log(error);
 });

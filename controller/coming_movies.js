@@ -5,7 +5,7 @@ const Coming = require("../model/coming_movies");
 
 Spider.start('https://movie.douban.com/coming', function ($) {
     let coming_movies = $("#wrapper #content .article tbody tr");
-    console.log(coming_movies.length);
+    // console.log(coming_movies.length);
     let movies_arr = [];
     for (let i = 0; i < coming_movies.length; i++) {
         let cur_movie = $(coming_movies[i]);
@@ -21,13 +21,14 @@ Spider.start('https://movie.douban.com/coming', function ($) {
         movies_arr.push(movie);
 
         Movie.spider_item(movie.detailUrl);
-
-        Coming.create(movies_arr,function(err,comings){
-            if (err) console.log(err);
-            console.log('comings插入数据库成功',comings);
-        });
-
     }
+
+    console.log('即将上映的电影',movies_arr.length);
+
+    Coming.create(movies_arr,function(err,comings){
+        if (err) console.log(err);
+        // console.log('comings插入数据库成功',comings);
+    });
 
 }, function (error) {
     console.log(error);

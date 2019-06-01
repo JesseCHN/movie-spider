@@ -23,11 +23,11 @@ function spider_item(url) {
         movie_detail.date = $("#content span[property='v:initialReleaseDate']").text();
         movie_detail.duration = $("#content span[property='v:runtime']").text();
         movie_detail.summary = Text.removeStains( $("#link-report span[property='v:summary']").text() );
-        console.log(movie_detail);
+        // console.log(movie_detail);
 
         Movie.create(movie_detail, function (err, movie) {
             if (err) console.log(err);
-            console.log('movie插入数据库成功',movie);
+            // console.log('movie插入数据库成功',movie);
           });
 
     },function(error){
