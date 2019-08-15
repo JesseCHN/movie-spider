@@ -25,6 +25,7 @@
   "dependencies": {
     "crawler": "^1.2.1",
     "koa": "^2.7.0",
+    "lodash": "^4.17.15",
     "mongoose": "^5.5.12"
   }
 }
