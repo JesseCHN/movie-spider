@@ -1,5 +1,5 @@
 {
-  "name": "movie_spider",
+  "name": "movie-spider",
   "version": "1.0.0",
   "description": "Spider for getting the latest movie information from the cinema",
   "main": "app.js",

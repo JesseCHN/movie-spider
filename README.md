@@ -1,4 +1,4 @@
-# movie_spider
+# movie-spider
 Spider for getting the latest movie information from the cinema
 
 ## details
