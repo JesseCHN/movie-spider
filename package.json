@@ -27,6 +27,6 @@
     "koa": "^2.7.0",
     "lodash": "^4.17.15",
     "lodash.merge": "^4.6.2",
-    "mongoose": "^5.5.12"
+    "mongoose": "^5.7.5"
   }
 }
